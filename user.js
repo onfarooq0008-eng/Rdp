@@ -1,0 +1,10 @@
+user_pref("toolkit.telemetry.enabled", false);
+user_pref("browser.cache.disk.enable", false);
+user_pref("browser.sessionstore.resume_from_crash", false);
+user_pref("browser.tabs.crashReporting.sendReport", false);
+user_pref("browser.tabs.animate", false);
+user_pref("browser.startup.homepage", "about:blank");
+user_pref("browser.shell.checkDefaultBrowser", false);
+user_pref("gfx.webrender.force-disabled", true);
+user_pref("layers.acceleration.disabled", true);
+user_pref("media.hardware-video-decoding.enabled", false);
