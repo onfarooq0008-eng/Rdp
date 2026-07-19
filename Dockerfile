@@ -5,7 +5,11 @@ ENV DEBIAN_FRONTEND=noninteractive     DISPLAY=:1     VNC_PORT=5901     WEB_PORT
 RUN apt-get update && apt-get install -y --no-install-recommends     ca-certificates     curl     wget     xz-utils     bash     supervisor     openbox     xterm     dbus-x11     x11vnc     xvfb     websockify     python3     python3-numpy     fonts-dejavu-core     net-tools     procps     && rm -rf /var/lib/apt/lists/*
 
 # noVNC (web UI)
-RUN mkdir -p /opt/novnc &&     wget -qO- https://github.com/novnc/noVNC/archive/refs/tags/v1.5.0.tar.gz | tar xz --strip-components=1 -C /opt/novnc &&     wget -qO- https://github.com/novnc/websockify/archive/refs/tags/v0.12.0.tar.gz | tar xz --strip-components=1 -C /opt/novnc/utils/websockify
+RUN mkdir -p /opt/novnc /opt/novnc/utils/websockify && \
+    wget -qO- https://github.com/novnc/noVNC/archive/refs/tags/v1.5.0.tar.gz \
+    | tar xz --strip-components=1 -C /opt/novnc && \
+    wget -qO- https://github.com/novnc/websockify/archive/refs/tags/v0.12.0.tar.gz \
+    | tar xz --strip-components=1 -C /opt/novnc/utils/websockify
 
 # lightweight apps
 RUN apt-get update && apt-get install -y --no-install-recommends     pcmanfm     firefox-esr     && rm -rf /var/lib/apt/lists/*
